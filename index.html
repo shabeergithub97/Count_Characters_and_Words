@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counting Characters & Words</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      div {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      textarea {
+        border: 2px solid #e80fd6;
+        border-radius: 10px;
+        outline: none;
+        font-size: 1.2rem;
+        padding: 10px 2px;
+        box-shadow: 0 0 4px 1px #b2bec3;
+      }
+      .abc textarea:hover {
+        transform: scale(1.03);
+      }
+      button {
+        padding: 20px 30px;
+        background-color: #cd10e6ab;
+        color: whitesmoke;
+        border-radius: 10px;
+        border: 2px solid #f004d8;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2rem;
+        outline: none;
+        box-shadow: inset;
+        text-shadow: #77a9be;
+      }
+      .abc button:hover {
+        color: rgb(12, 49, 234);
+        cursor: pointer;
+
+        transform: scale(1.03);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="abc">
+      <textarea id="words" cols="50" rows="10"></textarea>
+      <br />
+      <br />
+      <p id="showdata"></p>
+      <br />
+      <p id="wordscount"></p>
+      <br />
+      <br />
+      <button onclick="countWords()">Count Characters and Words</button>
+    </div>
+    <script>
+      const countWords = () => {
+        let noofch = document.getElementById("words").value.length;
+        let now = document.getElementById("words").value;
+
+        now = now.match(/\w+/g);
+        now = now.length;
+
+        document.getElementById("showdata").innerHTML =
+          "The Total Number of Characters are " + noofch;
+        document.getElementById("wordscount").innerHTML =
+          "The Total Number of Words are " + now;
+      };
+    </script>
+  </body>
+</html>
